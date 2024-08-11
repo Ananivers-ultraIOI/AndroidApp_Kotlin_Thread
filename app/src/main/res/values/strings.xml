@@ -2,4 +2,5 @@
     <string name="app_name">ThreadApp</string>
     <string name="modifier_le_texte">Modifier le texte</string>
     <string name="thread_go">Thread GO !</string>
+    <string name="thread_handler">Thread + Handler</string>
 </resources>

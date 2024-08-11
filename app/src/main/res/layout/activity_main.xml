@@ -44,5 +44,25 @@
         android:layout_margin="10sp"
         android:max= "100"
         android:visibility="gone"/>
-
+    <Button
+        android:id="@+id/bt_main_startTrHa"
+        android:onClick="xmlClicEvent"
+        tools:ignore=" OnClick"
+        android:text="@string/thread_handler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:id="@+id/pb_main_progressionTrHa1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:visibility="gone"/>
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:id="@+id/pb_main_progressionTrHa2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:visibility="gone"/>
 </LinearLayout>

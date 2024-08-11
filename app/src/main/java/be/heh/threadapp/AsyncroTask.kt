@@ -1,5 +1,6 @@
 package be.heh.threadapp
 
+import android.annotation.SuppressLint
 import android.os.AsyncTask
 import android.os.SystemClock
 import android.util.Log
@@ -8,25 +9,26 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.Toast
 
-class AsyncroTask : AsyncTask<String, Int, String> {
-    private var pb_main_progressionAS: ProgressBar? = null
-    private var bt_main_startAS: Button? = null
-    private var vi_main_ui: View? = null
-    constructor(v: View?, b: Button, p: ProgressBar) {
-        pb_main_progressionAS = p
-        bt_main_startAS = b
-        vi_main_ui = v
-    }
+class AsyncroTask(v: View?, b: Button, p: ProgressBar) : AsyncTask<String, Int, String>() {
+    @SuppressLint("StaticFieldLeak")
+    private var pbMainProgressionas: ProgressBar? = p
+    @SuppressLint("StaticFieldLeak")
+    private var btMainStartas: Button? = b
+    @SuppressLint("StaticFieldLeak")
+    private var viMainUi: View? = v
+
+    @Deprecated("Deprecated in Java")
     override fun onPreExecute() {
         super.onPreExecute()
 // Mise à jour de l'interface
-        bt_main_startAS?.visibility = View.GONE
-        pb_main_progressionAS!!.visibility = View.VISIBLE
+        btMainStartas?.visibility = View.GONE
+        pbMainProgressionas!!.visibility = View.VISIBLE
         Toast.makeText(
-            vi_main_ui?.context, "Démarrage de la tâche de fond AsyncTask",
+            viMainUi?.context, "Démarrage de la tâche de fond AsyncTask",
             Toast.LENGTH_LONG)
             .show()
     }
+    @Deprecated("Deprecated in Java")
     override fun doInBackground(vararg params: String?): String? {
         Log.i("Paramètre : ", params[0].toString() + params[1].toString())
         var result = ""
@@ -39,19 +41,20 @@ class AsyncroTask : AsyncTask<String, Int, String> {
         }
         return result
     }
-    fun onProgressUpdate(progress: Int) {
+    private fun onProgressUpdate(progress: Int) {
 //super.onProgressUpdate(progress)
-        pb_main_progressionAS!!.setProgress(progress)
+        pbMainProgressionas!!.progress = progress
     }
+    @Deprecated("Deprecated in Java")
     override fun onPostExecute(result: String) {
         super.onPostExecute(result)
         Toast.makeText(
-            vi_main_ui?.getContext(), "Fin de l'exécution de la tâche de fond AsyncTask"
+            viMainUi?.context, "Fin de l'exécution de la tâche de fond AsyncTask"
                     + result,
             Toast.LENGTH_LONG)
             .show()
 // Mise à jour de l'interface
-        pb_main_progressionAS!!.visibility = View.GONE
-        bt_main_startAS?.setVisibility(View.VISIBLE)
+        pbMainProgressionas!!.visibility = View.GONE
+        btMainStartas?.visibility = View.VISIBLE
     }
 }

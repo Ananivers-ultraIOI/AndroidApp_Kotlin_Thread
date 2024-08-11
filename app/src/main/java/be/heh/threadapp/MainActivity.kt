@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             binding.btMainTxtchange.id -> bpModifTexte()
             binding.btMainStartTH.id -> bpThreadGo()
             binding.btMainStartAS.id -> bpAsyncTask(v)
+            binding.btMainStartTrHa.id -> bpThreadHandler(v)
         }
     }
     @SuppressLint("SetTextI18n")
@@ -45,5 +46,11 @@ class MainActivity : AppCompatActivity() {
     private fun bpAsyncTask(v:View){
         val asyncrotask = AsyncroTask(v, binding.btMainStartAS,binding.pbMainProgressionAS)
         asyncrotask.execute("paramètres --->","<--- de traitement")
+    }
+    private fun bpThreadHandler(v:View){
+        val bkgd1=BackgroundTask(v,binding.btMainStartTrHa,binding.pbMainProgressionTrHa1)
+        bkgd1.Start()
+        val bkgd2=BackgroundTask(v,binding.btMainStartTrHa,binding.pbMainProgressionTrHa2)
+        bkgd2.Start()
     }
 }
