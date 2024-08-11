@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/tv_main_texte"
+        android:text="Hello World!"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+    <Button
+        android:id="@+id/bt_main_txtchange"
+        android:onClick="xmlClicEvent"
+        android:text="@string/modifier_le_texte"
+        android:layout_marginBottom="50dp" android:layout_height="wrap_content" android:layout_width="match_parent"/>
+    <Button
+        android:layout_marginTop="50dp"
+        android:id="@+id/bt_main_startTH"
+        android:onClick="xmlClicEvent"
+        tools:ignore="OnClick"
+        android:text="@string/thread_go" android:layout_height="wrap_content" android:layout_width="match_parent"/>
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:id="@+id/pb_main_progressionTH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max= "100"
+        android:layout_margin="10dp"/>
+</LinearLayout>
