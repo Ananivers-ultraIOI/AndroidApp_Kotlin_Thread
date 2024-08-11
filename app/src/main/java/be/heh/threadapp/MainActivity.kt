@@ -4,15 +4,14 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import be.heh.threadapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
+
     lateinit var monThread:ThreadTest
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -22,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         when(v.id){
             binding.btMainTxtchange.id -> bpModifTexte()
             binding.btMainStartTH.id -> bpThreadGo()
+            binding.btMainStartAS.id -> bpAsyncTask(v)
         }
     }
     @SuppressLint("SetTextI18n")
@@ -41,5 +41,9 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(applicationContext,"Activation du Thread",Toast.LENGTH_LONG).show()
             binding.btMainStartTH.text = "Thread GO !"
         }
+    }
+    private fun bpAsyncTask(v:View){
+        val asyncrotask = AsyncroTask(v, binding.btMainStartAS,binding.pbMainProgressionAS)
+        asyncrotask.execute("paramètres --->","<--- de traitement")
     }
 }

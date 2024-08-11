@@ -29,4 +29,20 @@
         android:layout_height="wrap_content"
         android:max= "100"
         android:layout_margin="10dp"/>
+    <Button
+        android:id="@+id/bt_main_startAS"
+        android:onClick="xmlClicEvent"
+        tools:ignore=" OnClick"
+        android:text= "AsyncTask"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:id="@+id/pb_main_progressionAS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:max= "100"
+        android:visibility="gone"/>
+
 </LinearLayout>
